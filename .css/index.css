@@ -1,0 +1,112 @@
+@import url("palette.css");
+@import url("font.css");
+
+.row
+{
+    display: flex; /* Arrange children in a row */
+}
+
+body
+{
+    background-color: var(--base-7);
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+    margin: 0;
+}
+
+.page-container
+{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    border: 0;
+}
+
+.menu
+{
+    list-style-type: none; /* Removes default bullets */
+    padding: 0; /* Optional: Removes indentation */
+    justify-content: space-between;
+    margin: 10%;
+    margin-top: 10px;
+}
+
+.menu button
+{
+    background-color: transparent; /* Transparent background */
+    border: none;                  /* No border */
+    color: black;                  /* Text color */
+    font-size: 16px;               /* Text size */
+    height: 40px;
+}
+
+.menu button:hover
+{
+    border-bottom: 2px solid blueviolet;
+    color: blueviolet;
+}
+
+.menu .logo
+{
+    background-color: white;
+    border-style: solid;
+    border-radius: 50px;
+    border-width: 2px;
+    border-color: blueviolet;
+    width: 60px;
+    height: 60px;
+    margin-top: 20px;
+}
+
+.menu .logo .logo-img
+{
+    width: 50px;
+    height: 50px;
+    margin-top: 2px;
+    margin-left: -3px;
+}
+
+header
+{
+    background-color: white;
+    height: 60px;
+    border-bottom: 2px solid blueviolet;
+}
+
+footer
+{
+    background-color: var(--base-4);
+    height: 60px;
+    border-top: 2px solid blueviolet;
+}
+
+.social-media-button
+{
+    background-color: transparent; /* Transparent background */
+    border: none;                  /* No border */
+    width: 50px;
+    height: 50px;
+}
+
+.social-media-button:hover
+{
+    color: blueviolet;
+}
+
+.social-media-button i
+{
+    font-size: 24px;
+}
+
+.contact
+{
+    list-style-type: none; /* Removes default bullets */
+    padding: 0; /* Optional: Removes indentation */
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: center;
+    margin: 10%;
+    margin-top: 0;
+}
