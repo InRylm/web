@@ -10,6 +10,9 @@ function exchangeThemes() {
                 var name2 = `--other-base-${index}`;
                 exchange(name1, name2);
             }
+            var name1 = `--text`;
+                var name2 = `--other-text`;
+                exchange(name1, name2);
         }
     }).catch(error => {
         console.error("Error loading CSS:", error);
