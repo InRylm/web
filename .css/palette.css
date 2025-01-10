@@ -4,24 +4,11 @@
     --blue-3: #5CB8C0;
     --blue-4: #64B5C8;
     --blue-5: #4BA3B9;
-}
 
-[data-theme="light"] {
-    --base-1: #F8F8F8;
-    --base-2: #F4F4F4;
-    --base-3: #F0F0F0;
-    --base-4: #EDEDED;
-    --base-5: #E9E9E9;
-    --base-6: #E5E5E5;
-    --base-7: #E1E1E1;
-}
-
-[data-theme="dark"] {
-    --base-1: #5F5F5F;
-    --base-2: #575757;
-    --base-3: #505050;
-    --base-4: #484848;
-    --base-5: #404040;
-    --base-6: #393939;
-    --base-7: #313131;
+    --base-1: #FFFFFF;
+    --base-2: #efeded;
+    --base-3: #e4e4e4;
+    --other-base-1: #3C3C3C;
+    --other-base-2: #282828;
+    --other-base-3: #404144;
 }

@@ -17,3 +17,8 @@ function setContact() {
     const frame = document.getElementById("frame");
     frame.setAttribute("src", ".html/contact.html");
 }
+
+function changeTheme()
+{
+    
+}

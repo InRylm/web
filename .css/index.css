@@ -8,7 +8,7 @@
 
 body
 {
-    background-color: var(--base-7);
+    background-color: var(--base-2);
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
@@ -22,6 +22,7 @@ body
     min-height: 100%;
     box-sizing: border-box;
     border: 0;
+    pointer-events: none;
 }
 
 .menu
@@ -40,46 +41,61 @@ body
     color: black;                  /* Text color */
     font-size: 16px;               /* Text size */
     height: 40px;
+    
 }
 
 .menu button:hover
 {
-    border-bottom: 2px solid blueviolet;
-    color: blueviolet;
+    border-bottom: 2px solid var(--blue-1);
+    color: var(--blue-1);
 }
 
 .menu .logo
 {
-    background-color: white;
+    position: inherit;
+    background-color: var(--base-1);
     border-style: solid;
     border-radius: 50px;
     border-width: 2px;
-    border-color: blueviolet;
+    border-color: var(--blue-1);
     width: 60px;
     height: 60px;
     margin-top: 20px;
+}
+
+.menu .logo .themeExchanger
+{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+}
+
+.menu .logo .themeExchanger:hover
+{
+    border-bottom: none;
 }
 
 .menu .logo .logo-img
 {
     width: 50px;
     height: 50px;
-    margin-top: 2px;
-    margin-left: -3px;
+    margin-top: 3px;
+    margin-left: -1px;
+    pointer-events: none;
 }
 
 header
 {
-    background-color: white;
+    background-color: var(--base-1);
     height: 60px;
-    border-bottom: 2px solid blueviolet;
+    border-bottom: 2px solid var(--blue-1);
 }
 
 footer
 {
-    background-color: var(--base-4);
+    background-color: var(--base-1);
     height: 60px;
-    border-top: 2px solid blueviolet;
+    border-top: 2px solid var(--blue-1);
 }
 
 .social-media-button
@@ -92,7 +108,7 @@ footer
 
 .social-media-button:hover
 {
-    color: blueviolet;
+    color: var(--blue-1);
 }
 
 .social-media-button i
