@@ -1,6 +1,8 @@
+
+
 function setPortrait() {
     const frame = document.getElementById("frame");
-    frame.setAttribute("src", "./html/portrait.html");
+    frame.setAttribute("src", "html/portrait.html");
 }
 
 function setGames() {
@@ -16,9 +18,4 @@ function setProducts() {
 function setContact() {
     const frame = document.getElementById("frame");
     frame.setAttribute("src", "./html/contact.html");
-}
-
-function changeTheme()
-{
-    
 }

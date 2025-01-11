@@ -1,0 +1,16 @@
+@import url("palette.css");
+@import url("font.css");
+
+body h1
+{
+    font-family: "Arima";
+    font-weight: 700;
+    color: var(--text);
+}
+
+p
+{
+    font-family: "Karla";
+    font-weight: 200;
+    color: var(--text);
+}
