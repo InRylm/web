@@ -2,7 +2,6 @@ function exchangeThemes() {
     functions.loadCSS("../css/palette.css").then(link => {
         // Parent document: Find and modify the loaded CSS
         const styleSheet = Array.from(document.styleSheets).find(sheet => sheet.ownerNode === link);
-        console.log(document);
         if (styleSheet) {
             console.log("CSS file loaded in parent document:", styleSheet);
 
@@ -11,11 +10,16 @@ function exchangeThemes() {
         }
 
         // Apply changes in all iframes
-        console.log("1");
         const iframes = document.querySelectorAll("iframe");
         iframes.forEach(iframe => {
-
-            exchangeVariableInDocument(iframe.contentDocument.documentElement);
+            try {
+                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                if (iframeDocument) {
+                    exchangeVariablesInDocument(iframeDocument);
+                }
+            } catch (error) {
+                console.error("Error accessing iframe's document:", error);
+            }
         });
     }).catch(error => {
         console.error("Error loading CSS:", error);
