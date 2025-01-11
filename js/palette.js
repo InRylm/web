@@ -1,31 +1,49 @@
 function exchangeThemes() {
-    functions.loadCSS(".css/palette.css").then(link => {
+    functions.loadCSS("../css/palette.css").then(link => {
+        // Parent document: Find and modify the loaded CSS
         const styleSheet = Array.from(document.styleSheets).find(sheet => sheet.ownerNode === link);
+        console.log(document);
         if (styleSheet) {
-            console.log("CSS file loaded:", styleSheet);
+            console.log("CSS file loaded in parent document:", styleSheet);
 
-            // Exchange --base-* and --other-base-* variables
-            for (let index = 1; index <= 3; index++) {
-                var name1 = `--base-${index}`;
-                var name2 = `--other-base-${index}`;
-                exchange(name1, name2);
-            }
-            var name1 = `--text`;
-                var name2 = `--other-text`;
-                exchange(name1, name2);
+            // Exchange variables in parent document
+            exchangeVariablesInDocument(document);
         }
+
+        // Apply changes in all iframes
+        console.log("1");
+        const iframes = document.querySelectorAll("iframe");
+        iframes.forEach(iframe => {
+
+            exchangeVariableInDocument(iframe.contentDocument.documentElement);
+        });
     }).catch(error => {
         console.error("Error loading CSS:", error);
     });
 }
 
-function exchange(var1, var2) {
-    // Swap CSS variable names in the :root rule
-    const root = document.documentElement;
-    const value1 = getComputedStyle(root).getPropertyValue(var1);
-    const value2 = getComputedStyle(root).getPropertyValue(var2);
+// Helper function to exchange CSS variables in a specific document
+function exchangeVariablesInDocument(doc) {
+    const root = doc.documentElement; // Access the :root element in the given document
+    for (let index = 1; index <= 3; index++) {
+        const name1 = `--base-${index}`;
+        const name2 = `--other-base-${index}`;
+        exchangeVariableInDocument(root, name1, name2);
+    }
+    exchangeVariableInDocument(root, `--text`, `--other-text`);
+}
+
+// Helper function to exchange two CSS variables in a specific document's :root
+function exchangeVariableInDocument(root, var1, var2) {
+    const value1 = getComputedStyle(root).getPropertyValue(var1).trim();
+    const value2 = getComputedStyle(root).getPropertyValue(var2).trim();
 
     // Swap the values of the CSS variables
-    root.style.setProperty(var1, value2);
-    root.style.setProperty(var2, value1);
+    if (value1 && value2) {
+        root.style.setProperty(var1, value2);
+        root.style.setProperty(var2, value1);
+        console.log(`Swapped ${var1}: ${value1} with ${var2}: ${value2}`);
+    } else {
+        console.warn(`Could not find values for ${var1} or ${var2}`);
+    }
 }
